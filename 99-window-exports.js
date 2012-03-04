@@ -93,7 +93,7 @@ window['sElement'].prototype['append'] = sElement.prototype.append;
 window['sElement'].prototype['remove'] = sElement.prototype.remove;
 window['sElement'].prototype['getElementsByClassName'] = sElement.prototype.getElementsByClassName;
 window['sElement'].prototype['setAttributes'] = sElement.prototype.setAttributes;
-window['q'] = sElement;
+window['q'] = q;
 
 // sHistory
 window['sHistory'] = sHistory;
