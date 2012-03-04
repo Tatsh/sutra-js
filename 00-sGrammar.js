@@ -77,7 +77,3 @@ sGrammar.humanize = function (str) {
 sGrammar.inflectOnQuanity = function (number, singular, plural) {
   return fGrammar.inflectOnQuanity.apply(fGrammar, arguments);
 };
-
-// For exporting with Closure
-// window['sGrammar'] = window['fGrammar'];
-// window['sGrammar']['dashize'] = sGrammar.dashize;
