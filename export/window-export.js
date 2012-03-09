@@ -60,7 +60,13 @@ window['sGrammar'] = {
 // sHTML
 window['sHTML'] = {
   'stripNonASCIIFromString': sHTML.stripNonASCIIFromString,
-  'makeFormElementID': sHTML.makeFormElementID
+  'makeFormElementID': sHTML.makeFormElementID,
+  'containsBlockLevelHTML': sHTML.containsBlockLevelHTML,
+  'convertNewLines': sHTML.convertNewLines,
+  'decode': sHTML.decode,
+  'encode': sHTML.encode,
+  'makeLinks': sHTML.makeLinks,
+  'prepare': sHTML.prepare
 };
 
 // sWindow/sWin/window
