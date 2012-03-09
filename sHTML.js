@@ -157,28 +157,3 @@ sHTML.prepare = function (content) {
   return fHTML.prepare(content);
 };
 
-var makePi = function (digits) {
-  var output = '';
-  var carry = 0;
-  var arr = [], sum;
-  var SCALE = 10000;
-
-  for (var i = 0; i <= digits; i++) {
-    arr[i] = 2000;
-  }
-
-  for (i = digits; i > 0; i -= 14) {
-    sum = 0;
-
-    for (j = i; j > 0; --j) {
-      sum = (sum * j) + (SCALE * arr[j]);
-      arr[j] = sum % ((j * 2) - 1);
-      sum /= (j * 2) - 1;
-    }
-
-    output += parseInt((carry + (sum / SCALE)), 10).toString().substr(0, 4);
-    carry = sum % SCALE;
-  }
-
-  return output.substr(1);
-};
