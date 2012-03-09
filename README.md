@@ -1,3 +1,7 @@
+# Note
+
+This project is being re-organised.
+
 This project partially depends on flourish-js. It is recommended that you have both available in your project.
 
 # Contributing
