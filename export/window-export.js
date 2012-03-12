@@ -1,3 +1,4 @@
+/*jshint sub:true */
 /**
  * Exports for Closure Compiler.
  *
