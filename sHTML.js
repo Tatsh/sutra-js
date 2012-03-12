@@ -44,7 +44,17 @@ sHTML.stripNonASCIIFromString = function (str, lower) {
    * @private
    */
   var inArray = function (needle, haystack) {
-    return haystack.indexOf(needle) !== -1;
+    if (haystack.indexOf) {
+      return haystack.indexOf(needle) !== -1;
+    }
+
+    for (var key in haystack) {
+      if (haystack.hasOwnProperty(key) && key === needle) {
+        return true;
+      }
+    }
+
+    return false;
   };
 
   /**
