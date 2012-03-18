@@ -166,4 +166,25 @@ sHTML.makeLinks = function(content, linkTextLength) {
 sHTML.prepare = function (content) {
   return fHTML.prepare(content);
 };
+/**
+ * Create paragraphs from 2 or more new lines.
+ *
+ * @param {string} html Unfiltered string to paragraphify.
+ * @returns string The converted string.
+ */
+sHTML.paragraphify = function (html) {
+  html += "\n\n";
 
+  var matches = html.match(/(.*)\n/g);
+  var str = '';
+  var potential;
+
+  for (var i = 0; i < matches.length; i++) {
+    potential = fUTF8.trim(matches[i]);
+    if (potential.length !== 0) {
+      str += '<p>' + sHTML.encode(potential) + '</p>';
+    }
+  }
+
+  return str;
+};
