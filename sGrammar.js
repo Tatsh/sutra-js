@@ -73,6 +73,6 @@ sGrammar.humanize = function (str) {
  * @return {string} The singular or plural form of the word or based on the
  *   quantity specified.
  */
-sGrammar.inflectOnQuanity = function (number, singular, plural) {
-  return fGrammar.inflectOnQuanity.apply(fGrammar, arguments);
+sGrammar.inflectOnQuantity = function (number, singular, plural) {
+  return fGrammar.inflectOnQuantity.apply(fGrammar, arguments);
 };
