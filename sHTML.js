@@ -38,7 +38,9 @@ sHTML._stripNonASCIIFromStringSafe = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I
 sHTML.stripNonASCIIFromString = function (str, lower) {
   var ret = '';
 
-  lower === undefined && (lower = true);
+  if (lower === undefined) {
+    lower = true;
+  }
 
   /**
    * @private
