@@ -25,7 +25,15 @@ sGrammar._dashizeCache = {};
  * @returns {string} String in dash notation.
  */
 sGrammar.dashize = function (str) {
-  return fGrammar._commonize(str, '-', sGrammar._dashizeCache);
+  if (sGrammar._dashizeCache[str]) {
+    return sGrammar._dashizeCache[str];
+  }
+
+  var original = str;
+  str = fURL.makeFriendly(str, '-');
+  sGrammar._dashizeCache[original] = str;
+
+  return str;
 };
 /**
  * Converts an <code>underscore_notation</code>, human-friendly or
