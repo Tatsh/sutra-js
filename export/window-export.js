@@ -60,7 +60,6 @@ window['sGrammar'] = {
 
 // sHTML
 window['sHTML'] = {
-  'stripNonASCIIFromString': sHTML.stripNonASCIIFromString,
   'makeFormElementID': sHTML.makeFormElementID,
   'containsBlockLevelHTML': sHTML.containsBlockLevelHTML,
   'convertNewLines': sHTML.convertNewLines,

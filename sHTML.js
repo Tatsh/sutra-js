@@ -22,75 +22,12 @@ sHTML.prototype.constructor = sHTML;
  */
 sHTML._formElementIDs = {};
 /**
- * Characters allowed when stripping non-ASCII from strings. Used in the
- *   sHTML.stripNonASCIIFromString() method.
- * @type Array
- * @const
- * @private
- */
-sHTML._stripNonASCIIFromStringSafe = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-'];
-/**
- * Strips non-ASCII characters from strings.
- * @param {string} str String to strip.
- * @param {boolean} [lower=true] Convert to the string to lower case.
- * @returns {string} The stripped string.
- */
-sHTML.stripNonASCIIFromString = function (str, lower) {
-  var ret = '';
-
-  if (lower === undefined) {
-    lower = true;
-  }
-
-  /**
-   * @private
-   */
-  var inArray = function (needle, haystack) {
-    if (haystack.indexOf) {
-      return haystack.indexOf(needle) !== -1;
-    }
-
-    for (var key in haystack) {
-      if (haystack.hasOwnProperty(key) && key === needle) {
-        return true;
-      }
-    }
-
-    return false;
-  };
-
-  /**
-   * This is not really private, but @private here because JSDoc thinks this
-   *   is a global.
-   * @private
-   */
-  str = (function (a) {
-    var ret = [];
-    for (var i = 0; i < a.length; i++) {
-      ret.push(a[i]);
-    }
-    return ret;
-  })(str.replace(/(\-|\s|_)+/g, '-'));
-
-  for (var i = 0; i < str.length; i++) {
-    if (inArray(str[i], sHTML._stripNonASCIIFromStringSafe)) {
-      ret += str[i];
-    }
-  }
-
-  if (lower) {
-    ret = ret.toLowerCase();
-  }
-
-  return ret;
-};
-/**
  * Create a unique form element ID.
  * @param {string} str Name of the field.
  * @returns {string} String for the 'id' attribute.
  */
 sHTML.makeFormElementID = function (str) {
-  var id = 'edit-' + sHTML.stripNonASCIIFromString(str);
+  var id = 'edit-' + fURL.makeFriendly(str, '-');
   var exists = document.getElementById(id);
 
   if (exists || sHTML._formElementIDs[id]) {
