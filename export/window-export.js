@@ -51,6 +51,7 @@
 
 // sGrammar
 window['sGrammar'] = {
+  'addDashizeRule': sGrammar.addDashizeRule,
   'dashize': sGrammar.dashize,
   'camelize': sGrammar.camelize,
   'underscorize': sGrammar.underscorize,
