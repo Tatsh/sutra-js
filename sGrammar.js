@@ -62,8 +62,6 @@ sGrammar.underscorize = function (str) {
 /**
  * Makes an <code>underscore_notation</code>, <code>camelCase</code>, or
  *   human-friendly string into a human-friendly string.
- * Port of fGrammar::humanize() from Flourish.
- *
  * @param {string} str String to 'humanise'.
  * @returns {string} String, 'humanised.'
  */
