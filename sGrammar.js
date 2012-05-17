@@ -18,6 +18,20 @@ sGrammar.prototype = new fGrammar();
  */
 sGrammar._dashizeCache = {};
 /**
+ * Special rules for dashize().
+ * @type Object
+ * @private
+ */
+sGrammar._dashizeRules = {};
+/**
+ * Adds a rule for a string inputted into <code>sGrammar.dashize()</code>.
+ * @param {string} input The string to process.
+ * @param {string} returnStr The string to return.
+ */
+sGrammar.addDashizeRule = function (input, returnStr) {
+  sGrammar._dashizeRules[input] = returnStr;
+};
+/**
  * Converts a <code>camelCase</code>, human-friendly or
  *   <code>underscore_notation</code> string to
  *   <code>dash-notation</code>.
@@ -25,6 +39,10 @@ sGrammar._dashizeCache = {};
  * @returns {string} String in dash notation.
  */
 sGrammar.dashize = function (str) {
+  if (sGrammar._dashizeRules[str]) {
+    return sGrammar._dashizeRules[str];
+  }
+
   if (sGrammar._dashizeCache[str]) {
     return sGrammar._dashizeCache[str];
   }
